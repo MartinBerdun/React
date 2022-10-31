@@ -1,9 +1,9 @@
-import { Component } from "react";
-
-class Itemlist extends Component {
-    render (){
-        return (<h4> Bienvenidos a St Store</h4>)
-    }
+const Itemlist =(props) =>{
+    return (
+        <div>
+            <h2>{props.greeting}</h2>
+        </div>
+    )
 }
 
 export default Itemlist;
