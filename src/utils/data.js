@@ -8,8 +8,6 @@ import perfumes from "../assets/img/perfumes.webp"
 import gorra from "../assets/img/gorra.webp"
 import chomba from "../assets/img/chomba.webp"
 
-
-
 export const data = [{
     id: 1,
     category: "1",
