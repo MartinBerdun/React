@@ -4,17 +4,10 @@ import { CartContext } from "./CartContext";
 import { doc, setDoc } from "firebase/firestore"; 
 import {db} from "../utils/firebaseConfig";
 import { updateDoc } from "firebase/firestore";
-// import ItemCount from "./ItemCount";
-
-
+import "../Cart.css"
 
 const Cart = (item) =>{
-
-    
-
     const {cartList,removeItem,deleteList,total} = useContext(CartContext)
-    // console.log(typeof(cartList))
-
     const createOrder = () =>{
         let order = {
             buyer :{
@@ -27,11 +20,10 @@ const Cart = (item) =>{
                 id : item.id,
                 price : item.precioUn,
                 title : item.nombre,
-                qty: item.stock
+                description: item.description,
+                qty: item.cantidad
             })),
         }
-        console.log(order)
-
         const createOrderinF = async ()=>{
             const idAuto = doc(collection(db,"orders"))
             await setDoc(idAuto, order);
@@ -40,48 +32,46 @@ const Cart = (item) =>{
 
         createOrderinF()
         .then (response =>{
-            alert ("Order ID =" + response.id)
+            alert ("Se ha creado la siguiente orden con el ID=" + response.id)
             cartList.forEach(async(item) => {
                 const itemRef = doc(db, "products", "item.id");
                 await updateDoc(itemRef, {
-                    stock: increment(-item.qty)
+                    stock: increment(-item.cantidad)
                 }); 
             });
-            //aca debo poner la funcion que borra al carrito clase fireb 2 en el min 1.30
+            deleteList()
         })
         .catch(err =>console.log(err))
     }
 
     return (
         <>
-                <button onClick={deleteList}>Vaciar carrito</button>
-
-
+                
                 {
                     cartList.length === 0 
-                    ? <li>Tu carrito esta vacio!</li>
+                    ? <p className="vacio" >Tu carrito esta vacio!</p>
                     : cartList.map (item =>
-                        <div>
-                            <img src={item.img} alt=""></img>
-                            <p>{item.nombre}</p><span>{item.cant}</span>
+                        <div className="divMayor">
+                            <div className="divCart">  
+                            <img className="imgCart" src={item.img} alt=""></img>
+                            <div className="divCart2">
+                            <p>{item.nombre}</p>
                             <p>Cantidad: {item.cantidad}</p>
-                            <p>${item.precioUn} each</p>
-                            <p>Total: ${item.cantidad*item.precioUn}</p>
-                            <button onClick={()=>removeItem(item.id)}>Eliminar</button>
+                            <p>$ {item.precioUn} c/u</p>
+                            <p><b>Total: $ {item.cantidad*item.precioUn}</b></p>
+                            <button className="buttonDelete" onClick={()=>removeItem(item.id)}>Eliminar</button>
+                            </div>
+                        </div>
                         </div>
                     )
                 }
-                
-            <button onClick={createOrder}>Checkout</button>
-            <p>Total: {total()}</p>
-            
-
-
-
-        {/* aca es donde renderizo los objetos del array para el carrito con un map, minuto 54 de la clase */}
-        {/* dibujaria una cart para renderizarlo */}
-        {/* //ver parte del video 1.35 minuto */}
-            
+            <div>
+            <div className="totaldiv"><p className="total" >Total: $ {total()}</p></div>
+            <div className="botones">
+            <button className="delete" onClick={deleteList}>Vaciar carrito</button>
+            <button className="create" onClick={createOrder}>Checkout Now</button>
+            </div>
+            </div>
         </>
     )
 }

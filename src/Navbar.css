@@ -2,3 +2,17 @@
   background-color: blue;
   color: aqua;
 }
+
+.link{
+  text-decoration: none;
+  color: black;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+.navbar {
+  background-color: #20A4F3;
+  height: 80px;
+}
+

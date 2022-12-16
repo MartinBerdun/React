@@ -1,6 +1,7 @@
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useState, useEffect } from 'react';
+import "../ItemCount.css"
 
 const ItemCount = ({stock=0, initial =1, onAdd}) => { 
     const [rate, setRate] = useState(0); 
@@ -22,9 +23,9 @@ const ItemCount = ({stock=0, initial =1, onAdd}) => {
     }
 
     return (
-        <div>
+        <div >
             <AddIcon onClick={increment}></AddIcon>
-            <span>{rate}</span>
+            <span className='rate'>{rate}</span>
             <RemoveIcon onClick={decrement}></RemoveIcon>
             <button className="botonAgregar" onClick={()=>onAdd(rate)}>Agregar</button>
             

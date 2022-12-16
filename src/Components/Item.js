@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const Item = ({id,img,nombre,stock, precioUn}) =>{
     return (
-        <div>
             <div className="container">
                 <div className="card">
                 <img src={img} alt=""></img> 
@@ -12,7 +11,7 @@ const Item = ({id,img,nombre,stock, precioUn}) =>{
                 <button className="botonAgregar"><Link to={`/item/${id}`}>Details</Link></button>
                 </div>
             </div>
-        </div>
+        
     )
 }
 

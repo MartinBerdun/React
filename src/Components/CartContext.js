@@ -8,7 +8,6 @@ const CartContextProvider = (props) => {
 
     const addToCart = (item,cant) =>{
         
-
         const isItemInCart = cartList.filter(cartItem => cartItem.id === item.id).length;
         if (isItemInCart===0){
             setCartList([
@@ -27,13 +26,9 @@ const CartContextProvider = (props) => {
                 } else {
                     return cartItem
                 }
-
             })
             setCartList(newArray)
         }
-
-        
-
     }
 
     const removeItem = (id) =>{
@@ -51,16 +46,25 @@ const CartContextProvider = (props) => {
         const totales = cartList.map(item => item.precioUn * item.cantidad)
         for (let i = 0; i < totales.length; i++) {
             suma += totales[i]
+        
     }
+    return suma;
+    }
+
+    // const totales = cartList.map(item => item.precioUn * item.cantidad)
+    // console.log(totales)
+
+
+    const calcItemsQty = () => {
+        let qtys = cartList.map(item => item.cantidad);
+        return qtys.reduce(((previousValue, currentValue) => previousValue + currentValue), 0);
     }
 
     return(
-        <CartContext.Provider value={{cartList,addToCart,removeItem, deleteList,total }}>
+        <CartContext.Provider value={{cartList,addToCart,removeItem, deleteList,total, calcItemsQty, }}>
             {props.children}
         </CartContext.Provider>
     )
 }
 
 export default CartContextProvider;
-
-// me quede el minuto 1,20
