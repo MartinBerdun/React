@@ -4,25 +4,27 @@ E-commerce dedicado exclusivamente a la venta de indumentaria masculina.
 
 Este sitio fue creado y desarrollado por mi como mi primer proyecto.
 
-## Available Scripts
+## Comenzando 🚀
 
-In the project directory, you can run:
+Si deseas tener una copia de este proyecto, deberas descargar el archivo zip para poder tenerlo en tu computadora local.
 
-### `npm start`
+## Construido con 🛠️
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  * HTML
+  * CSS
+  * JAVASCRIPT
+  * REACT
+  
+## Autores ✒️
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Martin Berdun - Frontend web developer en formacion
 
+## Licencia 📄
+ 
+Este proyecto esta libre de licencia por lo que estas autorizado a verlo, estudiarlo, modificarlo y demas!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Expresiones de Gratitud 🎁
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Comenta a otros sobre este proyecto 📢
+* Invita un café ☕ a alguien del equipo.
+* Da las gracias públicamente 🤓.
