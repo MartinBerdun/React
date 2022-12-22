@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# St Marthin Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+E-commerce dedicado exclusivamente a la venta de indumentaria masculina.
+
+Este sitio fue creado y desarrollado por mi como mi primer proyecto.
 
 ## Available Scripts
 
